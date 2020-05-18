@@ -1,0 +1,23 @@
+﻿@model Dvor.Web.Models.RegisterViewModel
+@using Dvor.Web.App_LocalResources
+
+<h1 class="menu__title">
+    @Resources.Profile <span class="menu__title--add">
+      @Resources.addAl
+    </span>
+</h1>
+<div class="register-form">
+    <form action="#" method="post">
+        <label class="register__label" for="name">@Resources.Name:</label>
+        @Html.TextBoxFor(model => model.Name, null, new { @class = "register__input", placeholder = "Enter your name" })
+        <label class="register__label" for="email">Email:</label>
+        @Html.TextBoxFor(model => model.Email, null, new { @class = "register__input", type = "email", id = "email", placeholder = "Enter your Email" })
+
+        <label class="register__label" for="password">@Resources.Password:</label>
+        @Html.TextBoxFor(model => model.Password, null, new { @class = "register__input", type = "password", id = "password", placeholder = "Enter your password" })
+        <label class="register__label" for="password_confirm">@Resources.Cpassword:</label>
+        @Html.TextBoxFor(model => model.ConfirmPassword, null, new { @class = "register__input", type = "password", id = "password_confirm", placeholder = "Enter your password again" })
+
+        <button type="submit" class="button-order">@Resources.Save</button>
+    </form>
+</div>

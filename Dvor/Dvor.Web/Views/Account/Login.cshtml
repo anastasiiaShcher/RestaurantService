@@ -1,0 +1,19 @@
+﻿@model Dvor.Web.Models.LoginViewModel
+@using Dvor.Web.App_LocalResources
+
+
+<h1 class="menu__title">
+    @Resources.Profile <span class="menu__title--add">
+        @Resources.HaveAcc
+    </span> <a href="@Url.Action("Register")" class="menu__title--add link">Or register an account</a>
+</h1>
+<div class="register-form">
+    @Html.ValidationSummary()
+    <form action="#" method="post">
+        <label class="register__label" for="email">Email:</label>
+        @Html.TextBoxFor(model => model.Email, new { id = "email", type = "email", @class = "register__input", placeholder = "Enter your Email" })
+        <label class="register__label" for="password">@Resources.Password:</label>
+        @Html.TextBoxFor(model => model.Password, new { id = "password", type = "password", @class = "register__input", placeholder = "Enter your password" })
+        <button type="submit" class="button-order">@Resources.Cpassword</button>
+    </form>
+</div>

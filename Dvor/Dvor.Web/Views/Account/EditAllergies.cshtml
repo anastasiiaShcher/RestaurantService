@@ -1,0 +1,29 @@
+﻿@model IList<Dvor.Common.Entities.Allergy>
+@using Dvor.Web.App_LocalResources
+
+<h1 class="menu__title">
+    Profile <span class="menu__title--add">
+        Please, add your allergies
+        information
+    </span>
+</h1>
+<div class="register-form">
+    <form action="#" method="post">
+        <label class="register__label" for="allergies">@Resources.Allergies :</label>
+        <div class="block-chosen-dishes">
+            @foreach (var allergy in Model)
+            {
+                <div class="chosen-dishes">
+                    <p class="dishes-name">@allergy.Name</p>
+                    <img class="alergy-img" src="@allergy.Image">
+                    <p class="dishes-describe">
+                        @allergy.Description
+                    </p>
+                    <input class="checkbox" type="checkbox" name="check1" value="@allergy.AllergyId" id="check1">
+                    <label class="checklabel dishes-remove" for="check1">@Resources.Add</label>
+                </div>
+            }
+        </div>
+        <button type="submit" class="button-order">@Resources.Save</button>
+    </form>
+</div>

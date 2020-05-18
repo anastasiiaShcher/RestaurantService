@@ -1,0 +1,65 @@
+﻿@using Dvor.Web.App_LocalResources
+@model Dvor.Web.Models.DishCreationViewModel
+
+<h2>@Resources.Add</h2>
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary()
+            @Html.HiddenFor(model => model.DishId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, null, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Name, null, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, null, new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@Resources.Category</label>
+                @Html.DropDownListFor(model => model.CategoryId,
+                    new SelectList(Model.AllCategories,
+                        "CategoryId", "Name"), "Select the category", new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, null, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Price, null, new { @class = "form-control", type = "number", step = "1", min = "1" })
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" name="IsNew" value="true" @(Model.IsNew ? "checked" : "") /> @Resources.IsNew
+            </div>
+
+            <div class="form-group">
+                <div>@Resources.Allergies</div>
+                @foreach (var g in Model.AllAllergies)
+                {
+                    <input type="checkbox" name="Allergies" value="@g.AllergyId"
+                           @(Model?.Allergies != null && Model.Allergies.Any(gg => gg == g.AllergyId) ? "checked" : "") />
+                    @g.Name
+                    <br />
+                }
+            </div>
+            <div class="account_email_holder">
+                <div class="label">
+                    <div class="label-inside">
+                        <label for="account_email_input"> @Resources.Photos </label>
+                    </div>
+                </div>
+                <div>
+                    <input id="file-input" type="file" name="Images" accept="image/*">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

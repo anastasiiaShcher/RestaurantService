@@ -1,0 +1,90 @@
+﻿@using Dvor.Common.Enums
+@using Dvor.Web.App_LocalResources
+@model Dvor.Web.Models.DishesListViewModel
+
+<h1 class="menu__title">
+    @Resources.Menu <span class="slash">/</span> <span>@Model.Dishes.FirstOrDefault()?.Category.Name </span> <img class="filter-img js-open-modal" data-modal="3" src="~/images/filter.svg" alt="filter">
+</h1>
+
+<div class="menu__categories">
+
+    @foreach (var dish in Model.Dishes)
+    {
+        <div class="menu__categories-item menu__categories-item-position">
+            <img class="menu__categories-item__img" src="@dish.Images?.FirstOrDefault()?.Url">
+            <span class="background-category"></span>
+            <div class="menu__category-title">
+                <span class="name-category">@dish.Name</span>
+                <div class="category-more">
+                    <span class="see-more">
+                        @dish.Description
+                    </span>
+                    <div class="see-characteristics">
+                        <span>@dish.Price @Resources.uah</span>
+                    </div>
+
+                </div>
+            </div>
+            <form action="@Url.Action("Add", "Basket")" method="post" class="select-item">
+                @Html.Hidden("dishId", dish.DishId)
+                <div class="plus-minus input-group">
+                    <input type="button" value="-" class="quantity button-minus" data-field="quantity">
+                    <input type="number" step="1" max="" value="1" name="quantity"
+                           class="quantity quantity-field">
+                    <input type="button" value="+" class="quantity button-plus" data-field="quantity">
+                </div>
+                <button type="submit" class="choose">choose</button>
+            </form>
+        </div>
+    }
+
+</div>
+
+
+
+
+
+<div class="modal filter-block" data-modal="3">
+    <h1 class="menu__title sort-by__title">
+        Sort by <img class="filter-img js-modal-close" src="~/images/filter.svg"
+                     alt="filter">
+    </h1>
+    <form action="#" method="get">
+        @Html.HiddenFor(model => model.Filter.CategoryId)
+        <div class="wrap">
+            <div class="formrow">
+                <input class="checkbox" type="radio" name="SortingMethod" id="check1" value="@SortingMethod.PriceAsc" @(Model.Filter.SortingMethod == SortingMethod.PriceAsc ? "checked" : "")>
+                <label class="checklabel" for="check1">Low</label>
+            </div>
+            <div class="formrow">
+                <input class="checkbox" type="radio" name="SortingMethod" id="check2" value="@SortingMethod.PriceDesc" @(Model.Filter.SortingMethod == SortingMethod.PriceDesc ? "checked" : "")>
+                <label class="checklabel" for="check2">High</label>
+            </div>
+
+            <div class="formrow">
+                <input class="checkbox" type="radio" name="SortingMethod" id="check3" value="@SortingMethod.Popular" @(Model.Filter.SortingMethod == SortingMethod.Popular ? "checked" : "")>
+                <label class="checklabel" for="check3">Popularity</label>
+            </div>
+
+        </div>
+        <h4>Show only</h4>
+
+        <label class="container">
+            New items
+            <input type="checkbox" name="NewOnly" value="true" @(Model.Filter.NewOnly ? "checked" : "")>
+            <span class="checkmark"></span>
+        </label>
+
+        <button type="submit" class="button-order">Filter</button>
+
+    </form>
+
+
+</div>
+<div class="overlay js-overlay-modal"></div>
+
+@section Scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="~/plus-minus.js"></script>
+}

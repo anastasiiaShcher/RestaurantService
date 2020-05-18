@@ -1,0 +1,23 @@
+﻿@using Dvor.Web.App_LocalResources
+@model IList<Dvor.Common.Entities.Category>
+<h1 class="menu__title">@Resources.Menu</h1>
+
+<div class="menu__categories">
+
+    @foreach (var category in Model)
+    {
+        <a href="@Url.Action("Get", "Category", new { CategoryId = category.CategoryId })">
+            <div class="menu__categories-item">
+                <img class="menu__categories-item__img" src="@category.ImageUrl">
+                <span class="background-category"></span>
+                <div class="menu__category-title">
+                    <span class="name-category">@category.Name</span>
+                    <div class="category-more">
+                        <span class="see-more">@Resources.more</span>
+                        <div class="see-characteristics"></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>

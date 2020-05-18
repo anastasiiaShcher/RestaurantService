@@ -1,0 +1,31 @@
+﻿@model Dvor.Web.Models.UserViewModel
+@using Dvor.Web.App_LocalResources
+
+<h1 class="menu__title">
+    @Resources.Profile <span class="menu__title--add">
+       @Resources.addPI
+    </span>
+</h1>
+<div class="register-form">
+    @Html.ValidationSummary()
+    <form action="#" method="post">
+        <label class="register__label" for="name">@Resources.Name:</label>
+        @Html.TextBoxFor(model => model.Name, new { @class = "register__input", placeholder = "Enter your name" })
+        <label class="register__label" for="allergies">@Resources.Allergies:</label>
+        <div class="block-chosen-dishes">
+            @foreach (var allergy in Model.AllAllergies)
+            {
+                <div class="chosen-dishes">
+                    <p class="dishes-name">@allergy.Name</p>
+                    <img class="alergy-img" src="@allergy.Image" alt="wheat">
+                    <p class="dishes-describe">
+                        @allergy.Description
+                    </p>
+                    <input class="checkbox" type="checkbox" name="check1" value="@allergy.AllergyId" id="check1" @(Model.UserAllergies.Contains(allergy.AllergyId) ? "checked" : "")>
+                    <label class="checklabel dishes-remove" for="check1">@Resources.Add</label>
+                </div>
+            }
+        </div>
+        <button type="submit" class="button-order">@Resources.Save</button>
+    </form>
+</div>

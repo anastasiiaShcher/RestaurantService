@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dvor.BLL.Infrastructure.ExpressionActions">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Infrastructure\ExpressionActions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dvor.BLL.Infrastructure.MailService" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Infrastructure\MailService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dvor.BLL.Services.DishService" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAABAAgQACAAAAQEAAEAAAgAAAAAAAAQ=</HashCode>
+      <FileName>Services\DishService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Class Name="Dvor.BLL.Services.ImageService" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAgAACAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Services\ImageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="2.509" />
+  </Class>
+  <Class Name="Dvor.BLL.Services.OrderService" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQJAAAAAAAgAQBAAgEACAAAAAUAAEQAAgAAAQQAAAQ=</HashCode>
+      <FileName>Services\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dvor.BLL.Services.UserService" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAgAACAAAAAGAAEAAAgAAAAAAAEA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.169" />
+  </Class>
+  <Class Name="Dvor.Common.Entities.DTO.OrderDetailsDTO">
+    <Position X="4" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.Allergy">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.Category">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.Dish">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.DishAllergy">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.DishSorting">
+    <Position X="5.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.Image">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.Notification">
+    <Position X="4" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.Order">
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.OrderDetails">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.User">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Entities.UserAllergy">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Enums.OrderStatus">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Enums.SortingMethod">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dvor.Common.Enums.TrackingState">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Dvor.Common.Interfaces.Services.IDishService" Collapsed="true">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.Services.IOrderService" Collapsed="true">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.Services.IUserService" Collapsed="true">
+    <Position X="14.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.IMailService">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.IRepository&lt;T&gt;" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.IRepositoryFactory" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.IService&lt;T&gt;" Collapsed="true">
+    <Position X="12.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.ITokenFactory" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Dvor.Common.Interfaces.IUnitOfWork" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

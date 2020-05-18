@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem {Value = c.Name, Text = char.ToUpper(c.NativeName[0]) + c.NativeName.Substring(1)})
+        .ToList();
+}
+
+<form action="@Url.Action("SetLanguage", "Localization")"
+      method="post" class="form-horizontal">
+    @Html.Hidden("returnUrl", Context.Request.Path)
+    <select name="culture" class="form-control" onchange="this.form.submit();"
+            asp-for="@requestCulture.RequestCulture.UICulture.Name"
+            asp-items="cultureItems">
+    </select>
+</form>

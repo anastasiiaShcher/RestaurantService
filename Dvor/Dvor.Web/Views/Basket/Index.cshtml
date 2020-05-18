@@ -1,0 +1,39 @@
+﻿@model Dvor.Common.Entities.Order
+@using Dvor.Web.App_LocalResources
+
+<h1 class="menu__title">@Resources.Cdishes </h1>
+<p class="menu__title summary">@Resources.Total: <span>$@Model.TotalValue</span></p>
+<div class="block-chosen-dishes">
+    @foreach (var orderDetails in Model.OrderDetails)
+    {
+        <div class="chosen-dishes">
+            <p class="dishes-name">@orderDetails.Dish.Name</p>
+            <p class="dishes-mass">@orderDetails.Dish.Price</p>
+            <p class="dishes-describe">@orderDetails.Dish.Description</p>
+            <form action="@Url.Action("ChangeCount")" class="backet-count" method="post">
+                @Html.Hidden("id", orderDetails.OrderDetailsId)
+                <div class="plus-minus dishes-count input-group">
+                    <input type="button" value="-" class="quantity button-minus" data-field="quantity">
+                    <input type="number" step="1" value="@orderDetails.Quantity" name="quantity"
+                           class="quantity quantity-field">
+                    <input type="button" value="+" class="quantity button-plus" data-field="quantity">
+                </div>
+                <a href="@Url.Action("RemoveDetails", new {id = orderDetails.OrderDetailsId})">
+                    <p class="dishes-remove">@Resources.Remove</p>
+                </a>
+            </form>
+        </div>
+    }
+
+</div>
+<a href="@Url.Action("Submit")" class="button-order">@Resources.Order</a>
+@section Scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="~/plus-minus.js"></script>
+    <script>
+        $(".backet-count").on("change", function () {
+            this.submit();
+        });
+    </script>
+}
